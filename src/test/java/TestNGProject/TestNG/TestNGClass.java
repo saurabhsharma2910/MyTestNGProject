@@ -88,7 +88,7 @@ public class TestNGClass {
 	@Test
 	public void loginAndLogoutGmail() throws Exception {
 
-		WebDriverWait excplicitWait = new WebDriverWait(driver, 20);
+		WebDriverWait excplicitWait = new WebDriverWait(driver, 30);
 
 		WebElement mailID, password, logout;
 
