@@ -96,6 +96,7 @@ public class TestNGClass {
 		Assert.assertTrue(true);
 		// To generate the log when the test case is passed
 		logger.log(LogStatus.PASS, "Test Case Passed is passTest");
+		System.out.println("Executing my script : ");
 
 		mailID = excplicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("identifierId")));
 		mailID.sendKeys("saurabhsharma.it14@gmail.com");
