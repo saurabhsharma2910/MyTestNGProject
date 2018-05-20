@@ -3,17 +3,17 @@ package TestNGProject.TestNG;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import javax.xml.validation.Validator;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.browserlaunchers.locators.GoogleChromeLocator;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -47,20 +47,21 @@ public class TestNGClass {
 	@BeforeMethod
 	public void beforeMethod() {
 
-//		if (driver instanceof ChromeDriver) {
-//
-//			System.setProperty("webdriver.chrome.driver",
-//					System.getProperty("user.dir") + "\\server\\chromedriver.exe");
-//			driver = new ChromeDriver();
-//			
-//		} else if (driver instanceof InternetExplorerDriver) {
-//
-//			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\server\\IEDriverServer.exe");
-//		}
-//		else if(driver instanceof FirefoxDriver){
-//			
-//			driver = new FirefoxDriver();
-//		}
+		// if (driver instanceof ChromeDriver) {
+		//
+		// System.setProperty("webdriver.chrome.driver",
+		// System.getProperty("user.dir") + "\\server\\chromedriver.exe");
+		// driver = new ChromeDriver();
+		//
+		// } else if (driver instanceof InternetExplorerDriver) {
+		//
+		// System.setProperty("webdriver.ie.driver",
+		// System.getProperty("user.dir") + "\\server\\IEDriverServer.exe");
+		// }
+		// else if(driver instanceof FirefoxDriver){
+		//
+		// driver = new FirefoxDriver();
+		// }
 
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\server\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -72,18 +73,18 @@ public class TestNGClass {
 
 	}
 
-	@Test
-	public void failTest() {
-		logger = extent.startTest("failTest");
-		Assert.assertTrue(false);
-		logger.log(LogStatus.PASS, "Test Case (failTest) Status is passed");
-	}
-
-	@Test
-	public void skipTest() {
-		logger = extent.startTest("skipTest");
-		throw new SkipException("Skipping - This is not ready for testing ");
-	}
+//	@Test
+//	public void failTest() {
+//		logger = extent.startTest("failTest");
+//		Assert.assertTrue(false);
+//		logger.log(LogStatus.PASS, "Test Case (failTest) Status is passed");
+//	}
+//
+//	@Test
+//	public void skipTest() {
+//		logger = extent.startTest("skipTest");
+//		throw new SkipException("Skipping - This is not ready for testing ");
+//	}
 
 	@Test
 	public void loginAndLogoutGmail() throws Exception {
@@ -115,6 +116,7 @@ public class TestNGClass {
 		logout.click();
 
 		driver.findElement(By.xpath("//a[contains(text(),'Sign out')]")).click();
+		Reporter.log("Case Closed");
 
 	}
 
